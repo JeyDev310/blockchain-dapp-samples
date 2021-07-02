@@ -40,8 +40,6 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "ERC721/color-token/frontend/package.json" }}
 
-      - run: cd ERC721/color-token/frontend && npm run test
-
       - run: cd ERC721/color-token/frontend && npm run build
 
       - run: cd ERC721/color-token/frontend && npm run deploy
