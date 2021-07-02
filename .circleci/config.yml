@@ -40,7 +40,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "ERC721/color-token/frontend/package.json" }}
 
-      - run: cd ERC721/color-token/frontend && npm run deploy
+      - run: cd ERC721/color-token/frontend && CI=false npm run deploy
 
 workflows:
   # Below is the definition of your workflow.
