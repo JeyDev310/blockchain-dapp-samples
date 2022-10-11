@@ -1,0 +1,62 @@
+{
+    "name": "hardhat-project",
+    "license": "MIT",
+    "scripts": {
+        "build": "npx hardhat compile",
+        "test": "npx hardhat compile && npx hardhat test test/hardhat/*",
+        "fork": "npx hardhat node",
+        "setup1": "npx hardhat test test/fork/setup/*",
+        "setup": "npx hardhat test test/fork/setup/topUpForkBalances",
+        "mainnetTests": "npx hardhat compile && npx hardhat --network ethLocalFork test test/fork/mainnet/*",
+        "mainnetJoyTests": "npx hardhat compile && npx hardhat --network ethLocalFork test test/fork/mainnet/JoyToken.test.ts",
+        "mainnetPresaleTests": "npx hardhat compile && npx hardhat --network ethLocalFork test test/fork/mainnet/JoyPresale.test.ts",
+        "mainnetArbitrageTests": "npx hardhat compile && npx hardhat --network ethLocalFork test test/fork/mainnet/Arbitrage.test.ts",
+        "mainnetLPExtractor": "npx hardhat compile && npx hardhat --network ethLocalFork test test/fork/mainnet/LPExtractor.test.ts",
+        "runForkDeployJoyStage1": "npx hardhat compile && npx hardhat run scripts/deployJoyStage1.ts --network ethLocalFork",
+        "runMainnetDeployJoyStage1": "npx hardhat compile && npx hardhat run scripts/deployJoyStage1.ts --network mainnet",
+        "runMainnetDeployJoyStage1Vesting": "npx hardhat compile && npx hardhat run scripts/deployJoyStage1Vesting.ts --network mainnet",
+        "testDeployJoyStage1": "npx hardhat compile && npx hardhat --network ethLocalFork test test/fork/mainnet/deployJoyStage1.test.ts",
+        "testJoyAftermath": "npx hardhat compile && npx hardhat --network ethLocalFork test test/fork/mainnet/JoyDeployAftermath.test.ts",
+        "testMigratorGasCosts": "npx hardhat compile && npx hardhat --network ethLocalFork test test/fork/mainnet/testMigratorGasCosts.test.ts",
+        "deployJoyStage2FinalSnapshotTestingNoMigrator": "npx hardhat compile && npx hardhat --network ethLocalFork test test/fork/mainnet/deployJoyStage2FinalSnapshotTestingNoMigrator.test.ts",
+        "deployJoyStage2AddNewPurchasers": "npx hardhat compile && npx hardhat --network ethLocalFork test test/fork/mainnet/deployJoyStage2AddNewPurchasers.test.ts",
+        "testDeployJoyStage2FinalSnapshot": "npx hardhat compile && npx hardhat --network ethLocalFork test test/fork/mainnet/deployJoyStage2FinalSnapshot.test.ts",
+        "testDeployJoyStage2FinalSnapshotTest": "npx hardhat compile && npx hardhat --network ethLocalFork test test/fork/mainnet/deployJoyStage2FinalSnapshotTesting.test.ts",
+        "runMainnetDeployJoyStage2Step1Migrator": "npx hardhat compile && npx hardhat run scripts/deployJoyStage2Step1Migrator.ts --network mainnet",
+        
+        "testJoyStage2VerifyNewPurchasers": "npx hardhat compile && npx hardhat --network ethLocalFork test test/fork/mainnet/deployJoyStage2VerifyNewPurchasers.test.ts",
+        "testJoyStage2JoyV2RenounceOwnerships": "npx hardhat compile && npx hardhat --network ethLocalFork test test/fork/mainnet/testJoyStage2JoyV2RenounceOwnerships.test.ts",
+        
+        "runMainnetDeployJoyStage2Step2MintMany": "npx hardhat compile && npx hardhat run scripts/deployJoyStage2Step2FinalSnapshot.ts --network mainnet",
+
+        "deployJoyStage2Step2FinalBurnAndRenounceOwnership": "npx hardhat compile && npx hardhat run scripts/deployJoyStage2Step2FinalBurnAndRenounceOwnership.ts --network mainnet"
+    },
+    "devDependencies": {
+        "@nomicfoundation/hardhat-chai-matchers": "^1.0.3",
+        "@nomicfoundation/hardhat-network-helpers": "^1.0.4",
+        "@nomicfoundation/hardhat-toolbox": "^1.0.2",
+        "@nomiclabs/hardhat-ethers": "^2.1.1",
+        "@nomiclabs/hardhat-etherscan": "^3.1.0",
+        "@openzeppelin/contracts": "^4.7.3",
+        "@typechain/ethers-v5": "^10.1.0",
+        "@typechain/hardhat": "^6.1.2",
+        "@types/jest": "^29.0.0",
+        "@types/mocha": "^9.1.1",
+        "chai": "^4.3.6",
+        "dotenv": "^16.0.2",
+        "ethers": "^5.7.0",
+        "hardhat": "^2.10.2",
+        "hardhat-gas-reporter": "^1.0.8",
+        "solidity-coverage": "^0.7.21",
+        "ts-node": "^10.9.1",
+        "typechain": "^8.1.0",
+        "typescript": "^4.8.2"
+    },
+    "dependencies": {
+        "bignumber.js": "^9.1.0",
+        "csv-parser": "^3.0.0"
+    },
+    "mocha": {
+        "timeout": "60000"
+    }
+}
